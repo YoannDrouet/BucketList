@@ -13,9 +13,9 @@ class WishType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+            ->add('author', null, ['required'=>false])
             ->add('title', null, ['required'=>false])
             ->add('description')
-            ->add('author', null, ['required'=>false])
             ->add('dateCreated', DateType::class,
                 ['html5'=>true, 'widget'=>'single_text', 'required'=>false, 'empty_data'=>null, 'invalid_message'=>'Renseignez une date'])
         ;
