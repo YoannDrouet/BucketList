@@ -30,11 +30,4 @@ class MainController extends AbstractController
     public function about() :Response {
         return $this->render("main/about.html.twig");
     }
-
-    /**
-     * @Route("/addIdea", name="addIdea")
-     */
-    public function addIdea() :Response {
-        return $this->render("main/addIdea.html.twig");
-    }
 }

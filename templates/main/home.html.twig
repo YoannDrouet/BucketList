@@ -8,9 +8,6 @@
 {% block central %} 
     <h1>Home</h1>
 
-    <a href="{{ path('addWish') }}" class="btn btn-success">Ajouter</a>
-    <br/><br/>
-
     {% for wish in listeWish %}
         <div class="card shadow">
             <div class="card-body">

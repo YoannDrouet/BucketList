@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\WishRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=WishRepository::class)
@@ -18,6 +19,10 @@ class Wish
     private $id;
 
     /**
+     * @Assert\NotBlank(message="Renseignez un titre")
+     * @Assert\Length(max="250",
+     *          maxMessage = "Maximum 250 caractères")
+     *
      * @ORM\Column(type="string", length=250)
      */
     private $title;
