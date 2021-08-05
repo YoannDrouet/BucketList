@@ -33,6 +33,10 @@ class Wish
     private $description;
 
     /**
+     * @Assert\NotBlank (message="Renseignez l'auteur")
+     * @Assert\Length (max="50",
+     *     maxMessage="Maximum 50 caractères")
+     *
      * @ORM\Column(type="string", length=50)
      */
     private $author;
@@ -43,7 +47,8 @@ class Wish
     private $isPublished;
 
     /**
-     * @ORM\Column(type="datetime")
+     *
+     * @ORM\Column(type="datetime", nullable=true)
      */
     private $dateCreated;
 

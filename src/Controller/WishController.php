@@ -26,6 +26,7 @@ class WishController extends AbstractController
         $formWish->handleRequest($request);
 
         if ($formWish->isSubmitted() && $formWish->isValid()){
+
             $wish->setIsPublished(true);
             $em->persist($wish);
             $em->flush();
