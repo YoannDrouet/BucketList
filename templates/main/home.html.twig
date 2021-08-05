@@ -1,0 +1,29 @@
+{% extends 'front.html.twig' %}
+{# On vient charger le template #}
+{# Aucun code HTML en dehors des block twig #}
+
+{% block titre %} Home - {{ parent() }}{% endblock %}
+{# Avec parent() je récupère le contenu du block parent #}
+
+{% block central %} 
+    <h1>Home</h1>
+
+    <a href="{{ path('addWish') }}" class="btn btn-success">Ajouter</a>
+    <br/><br/>
+
+    {% for wish in listeWish %}
+        <div class="card shadow">
+            <div class="card-body">
+                <h4 class="card-title">{{ wish.author }}</h4>
+                <p class="card-text">{{ wish.dateCreated|date("d m Y H:i") }}</p>
+                <p class="card-text">{{ wish.title }}</p>
+                {% if wish.description!=null %}
+                    <p class="card-text">{{ wish.description }}</p>
+                {% endif %}
+                <a href="{{ path('removeWish',{id : wish.id}) }}" class="btn btn-danger">Supprimer</a>
+            </div>
+        </div>
+        <br/>
+    {% endfor %}
+
+{% endblock %}
