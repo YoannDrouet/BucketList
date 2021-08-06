@@ -6,14 +6,16 @@
 {# Avec parent() je récupère le contenu du block parent #}
 
 {% block central %} 
-    <h1>Nouveau souhait</h1>
+    <h1>{{app.request.attributes.get('_route')=='addWish'?'Nouveau souhait':'Modifier souhait'}}</h1>
 
     {{ form_start(formWish) }}
 
     {{ form_widget(formWish) }}
 
-    <button class="btn btn-success">Ajouter</button>
+    <button class="btn btn-success">{{ app.request.attributes.get('_route')=='addWish'?'Ajouter':'Modifier' }}</button>
 
     {{ form_end(formWish) }}
+
+    <br/>
 
 {% endblock %}

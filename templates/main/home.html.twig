@@ -17,6 +17,7 @@
                 {% if wish.description!=null %}
                     <p class="card-text">{{ wish.description }}</p>
                 {% endif %}
+                <a href="{{ path('updateWish',{id : wish.id}) }}" class="btn btn-primary">Modifier</a>
                 <a href="{{ path('removeWish',{id : wish.id}) }}" class="btn btn-danger">Supprimer</a>
             </div>
         </div>

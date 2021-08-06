@@ -37,6 +37,22 @@ class WishController extends AbstractController
     }
 
     /**
+     * @Route ("/update/{id}", name="updateWish")
+     */
+    public function update(Wish $wish, EntityManagerInterface $em, Request $request):Response {
+        $formWish = $this->createForm(WishType::class, $wish);
+        $formWish->handleRequest($request);
+
+        if ($formWish->isSubmitted() && $formWish->isValid()){
+
+            $em->flush();
+            return $this->redirectToRoute('home');
+        }
+
+        return $this->render('main/addIdea.html.twig', ['wish'=>$wish, "formWish"=>$formWish->createView()]);
+    }
+
+    /**
      * @Route("/remove/{id}", name="removeWish" )
      */
     public function enlever(Wish $wish,EntityManagerInterface $em):Response
